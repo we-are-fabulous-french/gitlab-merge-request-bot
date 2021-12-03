@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-merge-request-bot
+  labels:
+    app: discord-merge-request-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-merge-request-bot
+  template:
+    metadata:
+      labels:
+        app: discord-merge-request-bot
+    spec:
+      containers:
+        - name: discord-merge-request-bot
+          image: registry.jandco.pro/discord-merge-request-bot:0.2
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
+          envFrom:
+            - secretRef:
+                name: discord-merge-request-bot-secret
+      imagePullSecrets:
+        - name: regcred

@@ -1,10 +1,10 @@
 import { MessageEmbed } from "discord.js";
-import { Logger } from "src/infrastructure/logger";
-import { clickButtonRepo } from "src/router/clickButton";
-import { messageRepo } from "src/router/messageCreate";
-import { getButton } from "src/utils/button";
-import { getRow } from "src/utils/row";
-import { getUrlInString } from "src/utils/url";
+import { Logger } from "../../infrastructure/logger";
+import { clickButtonRepo } from "../../router/clickButton";
+import { messageRepo } from "../../router/messageCreate";
+import { getButton } from "../../utils/button";
+import { getRow } from "../../utils/row";
+import { getUrlInString } from "../../utils/url";
 
 const CustomIds = {
   READ: "btn-Read",

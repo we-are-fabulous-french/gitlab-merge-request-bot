@@ -1,5 +1,5 @@
 import "module-alias/register";
-import { Logger } from "../src/infrastructure/logger";
+import { Logger } from "./infrastructure/logger";
 import {
   ButtonInteraction,
   Client,
