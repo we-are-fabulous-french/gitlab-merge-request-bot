@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: discord-merge-request-bot
-          image: registry.jandco.pro/discord-merge-request-bot:0.3
+          image: registry.jandco.pro/discord-merge-request-bot:0.4
           resources:
             limits:
               cpu: "100m"

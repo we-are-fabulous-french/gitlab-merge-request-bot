@@ -19,6 +19,6 @@ docker buildx user amdbuilder
 
 ```sh
 docker buildx build . --platform linux/amd64  -t discord-merge-request-bot --load
-docker tag discord-merge-request-bot registry.jandco.pro/discord-merge-request-bot:<TAG>
-docker push registry.jandco.pro/discord-merge-request-bot:<TAG>
+docker tag discord-merge-request-bot registry.jandco.pro/discord-merge-request-bot:0.4
+docker push registry.jandco.pro/discord-merge-request-bot:0.4
 ```
