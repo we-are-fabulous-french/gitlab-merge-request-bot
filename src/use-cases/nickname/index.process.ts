@@ -1,3 +1,4 @@
+import { MessageEmbedOptions } from "discord.js";
 import { messageRepo } from "../../router/messageCreate";
 
 const KEYWORD = "rename";
@@ -16,3 +17,11 @@ messageRepo.addAction({
     await message.delete();
   },
 });
+
+export const help: MessageEmbedOptions = {
+  title: "Rename peoples",
+  description: "",
+  footer: {
+    text: `${KEYWORD} [@tag] /pseudal/`,
+  },
+};

@@ -1,5 +1,4 @@
-import { MessageEmbed } from "discord.js";
-import { Logger } from "../../infrastructure/logger";
+import { MessageEmbed, MessageEmbedOptions } from "discord.js";
 import { clickButtonRepo } from "../../router/clickButton";
 import { messageRepo } from "../../router/messageCreate";
 import { getButton } from "../../utils/button";
@@ -143,3 +142,12 @@ clickButtonRepo.addAction({
 // 		return client.users.cache.get(mention);
 // 	}
 // }
+
+export const help: MessageEmbedOptions = {
+  title: "Track Merge Request",
+  description:
+    "Add ability to track merge request in their process of validation: Reading => Commented/Approuved => Fix/Merge",
+  footer: {
+    text: "@reviewer1 @reviewer2 ... -/merge_request/ ...",
+  },
+};

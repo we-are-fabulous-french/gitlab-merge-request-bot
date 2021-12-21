@@ -1,2 +1,3 @@
-export * from "./merge-request/index.process";
-export * from "./nickname/index.process";
+import "./merge-request/index.process";
+import "./nickname/index.process";
+import "./help/index.process";
