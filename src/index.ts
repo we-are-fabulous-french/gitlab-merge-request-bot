@@ -1,12 +1,6 @@
 import "module-alias/register";
 import { Logger } from "./infrastructure/logger";
-import {
-  ButtonInteraction,
-  Client,
-  Intents,
-  Message,
-  MessageButton,
-} from "discord.js";
+import { ButtonInteraction, Client, Intents, Message } from "discord.js";
 import "./use-cases";
 import { messageRepo } from "./router/messageCreate";
 import { clickButtonRepo } from "./router/clickButton";
