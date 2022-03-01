@@ -5,7 +5,7 @@ const KEYWORD = "rename";
 
 // First Step
 messageRepo.addAction({
-  filter: `${KEYWORD}`,
+  filter: `!${KEYWORD}`,
   callback: async (message) => {
     await message.mentions.members?.map((m) => {
       const n = message.content
@@ -21,7 +21,8 @@ messageRepo.addAction({
 export const help: MessageEmbedOptions = {
   title: "Rename peoples",
   description: "",
+  color: "#ee9b00",
   footer: {
-    text: `${KEYWORD} [@tag] /pseudal/`,
+    text: `!${KEYWORD} [@tag] /pseudal/`,
   },
 };

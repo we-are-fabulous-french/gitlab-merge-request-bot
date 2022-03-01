@@ -9,12 +9,18 @@ interface IGetButton {
   emoji: EmojiIdentifierResolvable;
   label: string;
   customId: string;
+  disabled?: boolean;
 }
 
 export const getButton = (props: IGetButton): MessageButton => {
-  return new MessageButton()
+  const btn = new MessageButton()
     .setStyle(props.style)
     .setEmoji(props.emoji)
     .setLabel(props.label)
     .setCustomId(props.customId);
+
+  if (props.disabled) {
+    btn.setDisabled(true);
+  }
+  return btn;
 };

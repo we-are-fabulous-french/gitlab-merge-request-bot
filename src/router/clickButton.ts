@@ -19,7 +19,9 @@ class ClickButtonRepo {
   }
 
   public exec(button: ButtonInteraction) {
-    const actionToRun = this.actions.filter((a) => button.customId === a.id);
+    const actionToRun = this.actions.filter((a) =>
+      button.customId.includes(a.id)
+    );
     actionToRun.forEach((a) => a.callback(button));
   }
 }

@@ -1,4 +1,5 @@
 import { MessageEmbed, MessageEmbedOptions } from "discord.js";
+import { Logger } from "src/infrastructure/logger";
 import { clickButtonRepo } from "../../router/clickButton";
 import { messageRepo } from "../../router/messageCreate";
 import { getButton } from "../../utils/button";
@@ -18,6 +19,7 @@ messageRepo.addAction({
   filter: "-/merge_requests/",
   callback: async (message) => {
     const channel = message.channel;
+
     const url = getUrlInString(message.content);
     if (!url) return;
 
@@ -44,11 +46,12 @@ messageRepo.addAction({
     });
     message.delete();
 
-    const reviewersTag =
-      message.mentions.members?.map((member) => `<@${member.id}>`).join(" ") ??
-      "aucun";
+    const reviewersTag = message.mentions.members
+      ?.map((member) => `<@${member.id}>`)
+      .join(" ");
 
-    if (reviewersTag === "aucun") return;
+    if (!reviewersTag || reviewersTag.length === 0) return;
+    Logger.info(reviewersTag?.length);
 
     embed.setDescription(
       `by: <@${message.author.id}>\nrelecteurs: ${reviewersTag}`
@@ -145,6 +148,7 @@ clickButtonRepo.addAction({
 
 export const help: MessageEmbedOptions = {
   title: "Track Merge Request",
+  color: "#e9d8a6",
   description:
     "Add ability to track merge request in their process of validation: Reading => Commented/Approuved => Fix/Merge",
   footer: {
